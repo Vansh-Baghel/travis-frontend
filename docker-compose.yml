@@ -1,7 +1,8 @@
 version: "3.8"
 services:
-  web:
-    build: 
+  frontend-web:
+    container_name: frontend-web
+    build:
       context: .
       dockerfile: Dockerfile.dev
     command: npm run dev
