@@ -3,10 +3,11 @@ services:
   - docker
 
 before_install:
-  - docker build -t vansh912/docker-frontend -f Dockerfile.dev .
+  - npm install 
 
 script:
-  - docker run vansh912/docker-frontend npm run test -- --coverage
+  - docker build -t vansh912/docker-frontend -f Dockerfile.dev . 
+  - docker run vansh912/docker-frontend npm run test -- --coverage 
 
 deploy:
   provider: elasticbeanstalk
