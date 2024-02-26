@@ -7,7 +7,7 @@ before_install:
 
 script:
   - docker build -t vansh912/docker-frontend -f Dockerfile.dev . 
-  - docker run vansh912/docker-frontend npm run test -- --coverage 
+  - docker run -e CI=true vansh912/docker-frontend npm run test -- --coverage 
 
 deploy:
   provider: elasticbeanstalk
