@@ -7,7 +7,7 @@ before_install:
 
 script:
   # frontend-web-1 is the container name
-  - docker-compose exec frontend-web npm run test -- --coverage
+  - docker exec -it frontend-web npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
