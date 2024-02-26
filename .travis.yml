@@ -3,11 +3,10 @@ services:
   - docker
 
 before_install:
-  - npm install 
+  - docker build -t vansh912/docker-react -f Dockerfile.dev .
 
 script:
-  - docker build -t vansh912/docker-frontend -f Dockerfile.dev . 
-  - docker run -e CI=true vansh912/docker-frontend npm run test -- --coverage 
+  - docker run -e CI=true vansh912/docker-react npm run test -- --coverage   
 
 deploy:
   provider: elasticbeanstalk

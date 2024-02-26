@@ -5,13 +5,17 @@ WORKDIR '/app'
 
 # install some dependencies
 COPY package*.json ./
+
 RUN npm install
 
-COPY . .
 RUN npm run build
+
+COPY . .
 
 FROM nginx
 EXPOSE 80
+
+RUN apk add --no-cache npm
 
 # Default command
 CMD ["npm", "run", "dev"]

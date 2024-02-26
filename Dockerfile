@@ -11,10 +11,10 @@ COPY . .
 # Note how we are using npm run build, to buit .next file
 CMD ["npm", "run", "build"]  
 
-FROM nginx
-WORKDIR /usr/share/nginx/html
-RUN apk add --no-cache npm
+FROM nginx:alpine
 
-EXPOSE 80
+# RUN apk add --no-cache npm
+
+WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /app/.next .
