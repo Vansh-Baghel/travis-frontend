@@ -6,7 +6,7 @@ before_install:
   - docker-compose up -d
 
 script:
-  - docker exec -it 865145e8b715 npm run test -- --coverage
+  - docker exec -it frontend-web-1 npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
