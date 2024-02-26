@@ -4,12 +4,12 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-RUN npm i
+RUN npm install
 
 COPY . .
 
 # Note how we are using npm run build, to buit .next file
-RUN npm run build
+CMD ["npm", "run", "build"]  
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
