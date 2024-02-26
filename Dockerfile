@@ -13,6 +13,7 @@ CMD ["npm", "run", "build"]
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
+RUN apk add --no-cache npm
 
 EXPOSE 80
 
