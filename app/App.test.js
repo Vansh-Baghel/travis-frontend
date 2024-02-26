@@ -1,3 +1,16 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
 it("renders without crashing", () => {
-  console.log("From Test")
+  const div = document.createElement("div");
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+// live updating test
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
 });

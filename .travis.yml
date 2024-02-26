@@ -3,7 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t vansh912/travis-frontend -f Dockerfile.dev .
+  - docker build -t vansh912/docker-frontend -f Dockerfile.dev .
 
-script: 
-  - docker run vansh912/travis-frontend npm run test -- --coverage
+script:
+  - docker run vansh912/docker-frontend npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: docker-react
+  env: "Docker-react-env"
+  bucket_name: "elasticbeanstalk-us-east-1-238951270020"
+  bucket_path: "docker-react"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    $secure: "$AWS_SECRET_KEY"
